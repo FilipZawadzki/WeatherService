@@ -1,13 +1,11 @@
 package com.zawadzki.weatherservice.service.impl;
 
-import com.zawadzki.weatherservice.config.WeatherbitConfig;
 import com.zawadzki.weatherservice.dao.CityDao;
 import com.zawadzki.weatherservice.model.City;
 import com.zawadzki.weatherservice.model.SurfingLocation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,10 +13,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 class SurfingLocationHelper {
-
-    private final WeatherbitConfig weatherbitConfig;
-
-    private final Clock clock;
 
     private WeatherbitAPIServiceInternal weatherbitAPIService;
 
@@ -49,12 +43,12 @@ class SurfingLocationHelper {
         return surfingLocation;
     }
 
-    protected List<SurfingLocation> createListOfSurfingLocationsFromAllCities(String date){
+    protected List<SurfingLocation> createListOfSurfingLocationsFromAllCities(String date) {
 
         List<SurfingLocation> listOfSurfingLocations = new ArrayList<>();
 
         List<City> listOfCities = cityDao.findAll();
-        for(City city : listOfCities){
+        for (City city : listOfCities) {
             String apiUrlForCity = weatherbitAPIService.buildApiUrlFromCoordinatesAndDate(city.getCoordinate(), date);
             String apiResponse = weatherbitAPIService.getJsonResponseForUrl(apiUrlForCity);
             SurfingLocation surfingLocation = createSurfingLocationForDateFromJSON(city, apiResponse, date);
