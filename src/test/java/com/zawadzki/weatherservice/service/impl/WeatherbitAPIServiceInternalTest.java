@@ -42,7 +42,7 @@ class WeatherbitAPIServiceInternalTest {
     void shouldBuildApiUrlFromCoordinatesAndDate() {
         //given
         when(clock.instant()).thenReturn(
-                Instant.parse("2023-02-06T10:05:23.653Z"));
+                Instant.parse("2023-02-06T00:00:00.000Z"));
         String shouldResult = String.format(weatherbitConfig.getUrlTemplate(),
                 TestData.getFortaleza().getCoordinate().getLatitude(),
                 TestData.getFortaleza().getCoordinate().getLongitude(),
@@ -59,7 +59,9 @@ class WeatherbitAPIServiceInternalTest {
     @Test
     void shouldGetJsonResponseForUrl() {
         //given
+
         //when
+
         //then
     }
 }

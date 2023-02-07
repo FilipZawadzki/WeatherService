@@ -59,4 +59,12 @@ public class WeatherbitAPIServiceInternal {
         return Math.abs(ChronoUnit.DAYS.between(dateToCalculate, LocalDate.now(clock))) + 1;
     }
 
+    protected String getResponseForDate(String apiResponseInJson, String date) {
+        var dateIndex = apiResponseInJson.indexOf(date);
+        if (dateIndex != -1) {
+            return apiResponseInJson.substring(dateIndex);
+        }
+        return apiResponseInJson;
+    }
+
 }
