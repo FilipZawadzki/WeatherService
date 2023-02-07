@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class SurfingServiceInternal implements SurfingService {
+class SurfingServiceInternal implements SurfingService {
 
     private final DateValidator dateValidator;
 
     @Override
     public String calculateBestCityToSurf(String date) {
 
-        if(dateValidator.isPatternNotValid(date) && dateValidator.isRangeNotValid(date)){
+        if (dateValidator.isPatternNotValid(date) && dateValidator.isRangeNotValid(date)) {
             return "Invalid date";
         }
 

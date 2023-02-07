@@ -32,7 +32,7 @@ public class EmbeddedLocationData implements ApplicationRunner {
 
         City jastarnia = new City(poland, "Jastarnia", new Coordinate("54.696", "18.678"));
         City fortaleza = new City(brazil, "Fortaleza", new Coordinate("-3.731", "-38.526"));
-        City bridgetown = new City(barbados, "Bridgetown", new Coordinate("13.100","-59.616"));
+        City bridgetown = new City(barbados, "Bridgetown", new Coordinate("13.100", "-59.616"));
         City pissouri = new City(cyprus, "Pissouri", new Coordinate("34.666", "32.700"));
         City leMorne = new City(mauritius, "Le Morne", new Coordinate("-20.456", "57.308"));
 

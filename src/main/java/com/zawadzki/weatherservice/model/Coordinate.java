@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Coordinate extends AbstractEntity{
+public class Coordinate extends AbstractEntity {
 
     private String latitude;
 

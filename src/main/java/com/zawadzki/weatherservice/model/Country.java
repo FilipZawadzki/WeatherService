@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Country extends AbstractEntity{
+public class Country extends AbstractEntity {
 
     private String countryName;
 

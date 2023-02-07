@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class SurfingLocation extends AbstractEntity{
+public class SurfingLocation extends AbstractEntity {
 
     @OneToOne
     private City city;

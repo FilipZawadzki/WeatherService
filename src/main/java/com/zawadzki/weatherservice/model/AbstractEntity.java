@@ -23,5 +23,4 @@ public class AbstractEntity {
     private LocalDateTime createDate;
 
 
-
 }
