@@ -2,9 +2,9 @@ package com.zawadzki.weatherservice.dbdata;
 
 import com.zawadzki.weatherservice.dao.CityDao;
 import com.zawadzki.weatherservice.dao.CountryDao;
-import com.zawadzki.weatherservice.model.City;
-import com.zawadzki.weatherservice.model.Coordinate;
-import com.zawadzki.weatherservice.model.Country;
+import com.zawadzki.weatherservice.model.CityEntity;
+import com.zawadzki.weatherservice.model.CoordinateEntity;
+import com.zawadzki.weatherservice.model.CountryEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,20 +21,20 @@ public class EmbeddedLocationData implements ApplicationRunner {
     private final CityDao cityDao;
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
-        Country brazil = new Country("Brazil");
-        Country poland = new Country("Poland");
-        Country barbados = new Country("Barbados");
-        Country cyprus = new Country("Cyprus");
-        Country mauritius = new Country("Mauritius");
+    public void run(ApplicationArguments args) {
+        CountryEntity brazil = new CountryEntity("Brazil");
+        CountryEntity poland = new CountryEntity("Poland");
+        CountryEntity barbados = new CountryEntity("Barbados");
+        CountryEntity cyprus = new CountryEntity("Cyprus");
+        CountryEntity mauritius = new CountryEntity("Mauritius");
 
         countryDao.saveAll(List.of(brazil, barbados, poland, mauritius, cyprus));
 
-        City jastarnia = new City(poland, "Jastarnia", new Coordinate("54.696", "18.678"));
-        City fortaleza = new City(brazil, "Fortaleza", new Coordinate("-3.731", "-38.526"));
-        City bridgetown = new City(barbados, "Bridgetown", new Coordinate("13.100", "-59.616"));
-        City pissouri = new City(cyprus, "Pissouri", new Coordinate("34.666", "32.700"));
-        City leMorne = new City(mauritius, "Le Morne", new Coordinate("-20.456", "57.308"));
+        CityEntity jastarnia = new CityEntity(poland, "Jastarnia", new CoordinateEntity("54.696", "18.678"));
+        CityEntity fortaleza = new CityEntity(brazil, "Fortaleza", new CoordinateEntity("-3.731", "-38.526"));
+        CityEntity bridgetown = new CityEntity(barbados, "Bridgetown", new CoordinateEntity("13.100", "-59.616"));
+        CityEntity pissouri = new CityEntity(cyprus, "Pissouri", new CoordinateEntity("34.666", "32.700"));
+        CityEntity leMorne = new CityEntity(mauritius, "Le Morne", new CoordinateEntity("-20.456", "57.308"));
 
         cityDao.saveAll(List.of(jastarnia, fortaleza, bridgetown, pissouri, leMorne));
     }

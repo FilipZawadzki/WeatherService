@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class SurfingLocation {
 
 
-    private City city;
+    private CityEntity city;
 
     private Double temperature;
 

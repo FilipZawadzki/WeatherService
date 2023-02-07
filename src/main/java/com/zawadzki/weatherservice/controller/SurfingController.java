@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/weather/surfing")
-public class SurfingServiceController {
+public class SurfingController {
 
     private final SurfingService surfingService;
 

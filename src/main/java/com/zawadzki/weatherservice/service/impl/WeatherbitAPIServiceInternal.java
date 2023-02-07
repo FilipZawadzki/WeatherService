@@ -1,7 +1,7 @@
 package com.zawadzki.weatherservice.service.impl;
 
 import com.zawadzki.weatherservice.config.WeatherbitConfig;
-import com.zawadzki.weatherservice.model.Coordinate;
+import com.zawadzki.weatherservice.model.CoordinateEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -47,9 +47,9 @@ public class WeatherbitAPIServiceInternal {
         return sb.toString();
     }
 
-    protected String buildApiUrlFromCoordinatesAndDate(Coordinate coordinate, String date) {
+    protected String buildApiUrlFromCoordinatesAndDate(CoordinateEntity coordinateEntity, String date) {
         long daysOfForecast = calculateNumberOfDaysToForecast(date);
-        return String.format(weatherbitConfig.getUrlTemplate(), coordinate.getLatitude(), coordinate.getLongitude(), daysOfForecast, weatherbitConfig.getApiKey());
+        return String.format(weatherbitConfig.getUrlTemplate(), coordinateEntity.getLatitude(), coordinateEntity.getLongitude(), daysOfForecast, weatherbitConfig.getApiKey());
     }
 
     private long calculateNumberOfDaysToForecast(String date) {

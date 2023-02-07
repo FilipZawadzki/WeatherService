@@ -1,15 +1,14 @@
 package com.zawadzki.weatherservice.model;
 
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Country extends AbstractEntity {
+public class CountryEntity extends AbstractEntity {
 
     private String countryName;
 

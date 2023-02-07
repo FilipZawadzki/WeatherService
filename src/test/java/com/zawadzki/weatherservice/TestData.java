@@ -1,14 +1,14 @@
 package com.zawadzki.weatherservice;
 
-import com.zawadzki.weatherservice.model.City;
-import com.zawadzki.weatherservice.model.Coordinate;
-import com.zawadzki.weatherservice.model.Country;
+import com.zawadzki.weatherservice.model.CityEntity;
+import com.zawadzki.weatherservice.model.CoordinateEntity;
+import com.zawadzki.weatherservice.model.CountryEntity;
 
 public class TestData {
 
     private static final String testDateInResponse = "2023-02-06";
 
-    private static final City fortaleza = new City(new Country("Brazil"), "Fortaleza", new Coordinate("-3.731" , "-38.526"));
+    private static final CityEntity fortaleza = new CityEntity(new CountryEntity("Brazil"), "Fortaleza", new CoordinateEntity("-3.731" , "-38.526"));
 
     private static final String JsonResonse = "{\"city_name\":\"Fortaleza\",\"country_code\":\"BR\"," +
             "\"data\":[{\"app_max_temp\":32.3,\"app_min_temp\":26.4,\"clouds\":31," +
@@ -54,7 +54,7 @@ public class TestData {
             "\"weather\":{\"description\":\"Moderate rain\",\"code\":501,\"icon\":\"r02d\"},\"wind_cdir\":\"E\",\"wind_cdir_full\":\"east\",\"wind_dir\":94," +
             "\"wind_gust_spd\":6.5,\"wind_spd\":4.5}],\"lat\":-3.731,\"lon\":-38.526,\"state_code\":\"06\",\"timezone\":\"America/Fortaleza\"}";
 
-    public static City getFortaleza() {
+    public static CityEntity getFortaleza() {
         return fortaleza;
     }
 

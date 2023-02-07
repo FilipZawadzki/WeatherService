@@ -1,7 +1,7 @@
 package com.zawadzki.weatherservice.service.impl;
 
 import com.zawadzki.weatherservice.dao.CityDao;
-import com.zawadzki.weatherservice.model.City;
+import com.zawadzki.weatherservice.model.CityEntity;
 import com.zawadzki.weatherservice.model.SurfingLocation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 class SurfingLocationHelper {
 
-    private WeatherbitAPIServiceInternal weatherbitAPIService;
+    private final WeatherbitAPIServiceInternal weatherbitAPIService;
 
     private final CityDao cityDao;
 
-    protected SurfingLocation createSurfingLocationForDateFromJSON(City city, String apiJsonResponse, String date) {
+    protected SurfingLocation createSurfingLocationForDateFromJSON(CityEntity city, String apiJsonResponse, String date) {
         String apiResponseForDateInJson = weatherbitAPIService.getResponseForDate(apiJsonResponse, date);
 
         String[] data = Arrays.stream(apiResponseForDateInJson.split(","))
@@ -47,8 +47,8 @@ class SurfingLocationHelper {
 
         List<SurfingLocation> listOfSurfingLocations = new ArrayList<>();
 
-        List<City> listOfCities = cityDao.findAll();
-        for (City city : listOfCities) {
+        List<CityEntity> listOfCities = cityDao.findAll();
+        for (CityEntity city : listOfCities) {
             String apiUrlForCity = weatherbitAPIService.buildApiUrlFromCoordinatesAndDate(city.getCoordinate(), date);
             String apiResponse = weatherbitAPIService.getJsonResponseForUrl(apiUrlForCity);
             SurfingLocation surfingLocation = createSurfingLocationForDateFromJSON(city, apiResponse, date);

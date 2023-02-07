@@ -1,15 +1,14 @@
 package com.zawadzki.weatherservice.model;
 
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Coordinate extends AbstractEntity {
+public class CoordinateEntity extends AbstractEntity {
 
     private String latitude;
 
