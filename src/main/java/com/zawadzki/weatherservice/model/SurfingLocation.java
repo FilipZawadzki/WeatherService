@@ -1,10 +1,14 @@
 package com.zawadzki.weatherservice.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
-public class SurfingLocation {
+@Entity
+public class SurfingLocation extends AbstractEntity{
 
+    @OneToOne
     private City city;
 
     private Double temperature;
