@@ -19,7 +19,7 @@ class SurfingLocationHelper {
     private final CityDao cityDao;
 
     protected SurfingLocation createSurfingLocationForDateFromJSON(CityEntity city, String apiJsonResponse, String date) {
-        String apiResponseForDateInJson = weatherbitAPIService.getResponseForDate(apiJsonResponse, date);
+        String apiResponseForDateInJson = weatherbitAPIService.getJsonResponseForDate(apiJsonResponse, date);
 
         String[] data = Arrays.stream(apiResponseForDateInJson.split(","))
                 .filter(str -> str.contains("city_name") ||

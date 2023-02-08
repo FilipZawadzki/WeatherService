@@ -18,8 +18,6 @@ class SurfingServiceInternal implements SurfingService {
 
     private final SurfingLocationHelper surfingLocationHelper;
 
-    private final WeatherbitAPIServiceInternal weatherbitAPIService;
-
     @Override
     public String calculateBestCityToSurf(String date) {
 

@@ -9,7 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.time.*;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -19,7 +22,7 @@ import static org.mockito.Mockito.when;
 class WeatherbitAPIServiceInternalTest {
 
     @Autowired
-    public WeatherbitConfig weatherbitConfig;
+    private WeatherbitConfig weatherbitConfig;
 
     @Autowired
     private WeatherbitAPIServiceInternal weatherbitAPIService;
@@ -29,14 +32,16 @@ class WeatherbitAPIServiceInternalTest {
 
 
     @BeforeEach
-    void setUpClock(){
+    void setUpClock() {
         when(clock.getZone()).thenReturn(ZoneId.of("GMT"));
+
+        when(clock.instant()).thenReturn(
+                Instant.parse("2023-02-06T00:00:00.000Z"));
     }
+
     @Test
     void shouldBuildApiUrlFromCoordinatesAndDate() {
         //given
-        when(clock.instant()).thenReturn(
-                Instant.parse("2023-02-06T00:00:00.000Z"));
         String shouldResult = String.format(weatherbitConfig.getUrlTemplate(),
                 TestData.getFortaleza().getCoordinate().getLatitude(),
                 TestData.getFortaleza().getCoordinate().getLongitude(),
@@ -51,11 +56,24 @@ class WeatherbitAPIServiceInternalTest {
     }
 
     @Test
-    void shouldGetJsonResponseForUrl() {
+    void shouldGetResponseForDate() {
         //given
-
         //when
-
+        String response = weatherbitAPIService.getJsonResponseForDate(TestData.getJsonResponse(), LocalDate.now(clock).format(TestData.dtf));
         //then
+        assertThat(response).isNotNull()
+                .contains(LocalDate.now(clock).format(TestData.dtf))
+                .contains(TestData.getFortaleza().getCityName());
     }
+
+    @Test
+    void shouldCalculateNumberOfDaysOfForecast_GivenDaysForwardAndToday() {
+        //given
+        String date = LocalDate.now(clock).plusDays(15).format(TestData.dtf);
+        //when
+        long days = weatherbitAPIService.calculateNumberOfDaysToForecast(date);
+        //then
+        assertThat(days).isEqualTo(16);
+    }
+
 }

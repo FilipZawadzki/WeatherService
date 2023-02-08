@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 @Service
 @RequiredArgsConstructor
-public class WeatherbitAPIServiceInternal {
+ class WeatherbitAPIServiceInternal {
 
     private final WeatherbitConfig weatherbitConfig;
 
@@ -52,14 +52,14 @@ public class WeatherbitAPIServiceInternal {
         return String.format(weatherbitConfig.getUrlTemplate(), coordinateEntity.getLatitude(), coordinateEntity.getLongitude(), daysOfForecast, weatherbitConfig.getApiKey());
     }
 
-    private long calculateNumberOfDaysToForecast(String date) {
+    protected long calculateNumberOfDaysToForecast(String date) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate dateToCalculate = LocalDate.parse(date, dtf);
 
         return Math.abs(ChronoUnit.DAYS.between(dateToCalculate, LocalDate.now(clock))) + 1;
     }
 
-    protected String getResponseForDate(String apiResponseInJson, String date) {
+    protected String getJsonResponseForDate(String apiResponseInJson, String date) {
         var dateIndex = apiResponseInJson.indexOf(date);
         if (dateIndex != -1) {
             return apiResponseInJson.substring(dateIndex);

@@ -1,5 +1,6 @@
 package com.zawadzki.weatherservice.util;
 
+import com.zawadzki.weatherservice.TestData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class DateValidatorTest {
 
-    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter invalidDateFormat = DateTimeFormatter.ofPattern("MM-yyyy-dd");
 
     @Autowired
     private DateValidator dateValidator;
@@ -21,7 +22,7 @@ class DateValidatorTest {
     void shouldReturnFalse_WhenPatternIsNotValid() {
         //given
         //when
-        boolean result = dateValidator.isPatternNotValid(LocalDate.now().format(dateTimeFormatter));
+        boolean result = dateValidator.isPatternNotValid(LocalDate.now().format(invalidDateFormat));
         //then
         assertThat(result).isFalse();
     }
@@ -30,7 +31,7 @@ class DateValidatorTest {
     void shouldReturnTrue_WhenPatternIsValid() {
         //given
         //when
-        boolean result = dateValidator.isPatternNotValid(LocalDate.now().format(dateTimeFormatter));
+        boolean result = dateValidator.isPatternNotValid(LocalDate.now().format(TestData.dtf));
         //then
         assertThat(result).isTrue();
     }
@@ -39,25 +40,25 @@ class DateValidatorTest {
     void shouldReturnTrue_WhenRangeIsNotValid() {
         //given
         //when
-        boolean result = dateValidator.isRangeNotValid(LocalDate.now().plusDays(16).format(dateTimeFormatter));
+        boolean result = dateValidator.isRangeNotValid(LocalDate.now().plusDays(16).format(TestData.dtf));
         //then
-        assertThat(result).isFalse();
+        assertThat(result).isTrue();
     }
 
     @Test
     void shouldReturnFalse_WhenRangeIsValid() {
         //given
         //when
-        boolean result = dateValidator.isRangeNotValid(LocalDate.now().plusDays(15).format(dateTimeFormatter));
+        boolean result = dateValidator.isRangeNotValid(LocalDate.now().plusDays(15).format(TestData.dtf));
         //then
-        assertThat(result).isTrue();
+        assertThat(result).isFalse();
     }
 
     @Test
     void isDateLessOrEqual16DaysAwayFromToday() {
         //given
         //when
-        boolean result = dateValidator.isDateLessOrEqual16DaysAwayFromToday(LocalDate.now().plusDays(15).format(dateTimeFormatter));
+        boolean result = dateValidator.isDateLessOrEqual16DaysAwayFromToday(LocalDate.now().plusDays(15).format(TestData.dtf));
         //then
         assertThat(result).isTrue();
     }
@@ -66,7 +67,7 @@ class DateValidatorTest {
     void isDateAfterOrEqualToday() {
         //given
         //when
-        boolean result = dateValidator.isDateAfterOrEqualToday(LocalDate.now().plusDays(15).format(dateTimeFormatter));
+        boolean result = dateValidator.isDateAfterOrEqualToday(LocalDate.now().plusDays(15).format(TestData.dtf));
         //then
         assertThat(result).isTrue();
     }

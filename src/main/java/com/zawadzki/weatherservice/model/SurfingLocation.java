@@ -18,6 +18,9 @@ public class SurfingLocation {
 
     @Override
     public String toString() {
+        if(city==null){
+            return "";
+        }
         return city.getCountry().getCountryName() + " (" +
                 city.getCityName() + ") " + temperature + " Celcius" +
                 " " + windSpeed + "m/s";
