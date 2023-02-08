@@ -11,7 +11,7 @@ Date parameter should be in (yyyy-MM-dd) format.
 DONE.
 
 ### Technicals:
-In dbdata folder there's init data class with these cities:
+In dbdata folder there's init data class with these cities:  
 Jastarnia (Poland)
 Fortaleza (Brazil)
 Bridgetown (Barbados)
