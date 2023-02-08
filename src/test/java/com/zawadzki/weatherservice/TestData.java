@@ -11,7 +11,7 @@ public class TestData {
 
     public static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public static String getJsonResponseForTestDate(){
+    public static String getJsonResponseForTestDate() {
         return "datetime\":\"2023-02-06\"," +
                 "\"dewpt\":22.4,\"high_temp\":29,\"low_temp\":24.7,\"max_dhi\":null,\"max_temp\":29,\"min_temp\":25,\"moon_phase\":0.974033," +
                 "\"moon_phase_lunation\":0.55,\"moonrise_ts\":1675719715,\"moonset_ts\":1675677451,\"ozone\":264.1,\"pop\":55,\"precip\":3.875,\"pres\":1009.2,\"rh\":77," +
@@ -20,8 +20,9 @@ public class TestData {
                 "\"wind_cdir_full\":\"east\",\"wind_dir\":81,\"wind_gust_spd\":4.5,\"wind_spd\":3.5},{\"app_max_temp\":31,\"app_min_temp\":25.6,\"clouds\":22," +
                 "\"clouds_hi\":82,\"clouds_low\":12,\"clouds_mid\":1,\"";
     }
+
     public static CityEntity getFortaleza() {
-        return new CityEntity(new CountryEntity("Brazil"), "Fortaleza", new CoordinateEntity("-3.731" , "-38.526"));
+        return new CityEntity(new CountryEntity("Brazil"), "Fortaleza", new CoordinateEntity("-3.731", "-38.526"));
     }
 
     public static String getJsonResponse() {
@@ -74,7 +75,7 @@ public class TestData {
         return "2023-02-06";
     }
 
-    public static SurfingLocation getFortalezaSurfingLocation(){
+    public static SurfingLocation getFortalezaSurfingLocation() {
         SurfingLocation surfingLocation = new SurfingLocation();
         surfingLocation.setCity(TestData.getFortaleza());
         surfingLocation.setTemperature(26.9);
@@ -83,9 +84,9 @@ public class TestData {
         return surfingLocation;
     }
 
-    public static SurfingLocation getJastarniaSurfingLocation(){
+    public static SurfingLocation getJastarniaSurfingLocation() {
         SurfingLocation surfingLocation = new SurfingLocation();
-        surfingLocation.setCity(new CityEntity(new CountryEntity("Poland"), "Jastarnia", new CoordinateEntity("test" , "test")));
+        surfingLocation.setCity(new CityEntity(new CountryEntity("Poland"), "Jastarnia", new CoordinateEntity("test", "test")));
         surfingLocation.setTemperature(30.0);
         surfingLocation.setWindSpeed(8.0);
 

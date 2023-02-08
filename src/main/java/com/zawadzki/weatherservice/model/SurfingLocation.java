@@ -18,7 +18,7 @@ public class SurfingLocation {
 
     @Override
     public String toString() {
-        if(city==null){
+        if (city == null) {
             return "";
         }
         return city.getCountry().getCountryName() + " (" +

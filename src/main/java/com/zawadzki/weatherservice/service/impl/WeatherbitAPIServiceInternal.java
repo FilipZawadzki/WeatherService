@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 @Service
 @RequiredArgsConstructor
- class WeatherbitAPIServiceInternal {
+class WeatherbitAPIServiceInternal {
 
     private final WeatherbitConfig weatherbitConfig;
 
