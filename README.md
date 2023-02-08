@@ -1,6 +1,6 @@
 # WeatherService
-Repo for a quick project which uses API from WeatherBit 
-to get the best surfing weather in a location from already embedded cities.
+Quick project which uses API from WeatherBit 
+to get the best surfing weather from already embedded cities base.
 
 ### To configure:
 
@@ -26,4 +26,4 @@ Returned value is in string format "*City* (*Country*) *tmp* Celsius *windspd* m
 
 ##### Used stack: Java 17, Spring/JPA, H2
 
-by FZ
+##### by FZ
