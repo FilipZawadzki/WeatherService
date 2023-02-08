@@ -12,10 +12,10 @@ DONE.
 
 ### Technicals:
 In dbdata folder there's init data class with these cities:  
-Jastarnia (Poland)
-Fortaleza (Brazil)
-Bridgetown (Barbados)
-Pissouri (Cyprus)
+Jastarnia (Poland),
+Fortaleza (Brazil),
+Bridgetown (Barbados),
+Pissouri (Cyprus),
 Le Morne (Mauritius)
 
 App connects to WeatherbitAPI, chooses best city to surf if city's temperature is between 5 Celsius and 35 Celsius
