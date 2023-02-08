@@ -24,6 +24,6 @@ and it's wind speed is between 5m/s and 18m/s. Any conflict is resolved by highe
 
 Returned value is in string format "*City* (*Country*) *tmp* Celsius *windspd* m/s"  
 
-
+#####Used stack: Java 17, Spring/JPA, H2
 
 by FZ
