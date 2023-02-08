@@ -10,7 +10,7 @@ App is available at ("*SERVER*/weather/cities/surfing/best{date}")
 Date parameter should be in (yyyy-MM-dd) format.
 DONE.
 
-About:
+##About:
 In dbdata folder there's init data class with these cities:
 
 Jastarnia (Poland)
@@ -27,3 +27,4 @@ Returned value is in string format "*City* (*Country*) *tmp* Celsius *windspd* m
 
 
 
+by FZ
