@@ -2,7 +2,7 @@
 Repo for a quick project which uses API from WeatherBit 
 to get the best surfing weather in a location from already embedded cities.
 
-To configure:
+### To configure:
 
 Open application.properties file in .\resources folder
 Edit apiKey property and pass your API key
@@ -10,7 +10,7 @@ App is available at ("*SERVER*/weather/cities/surfing/best{date}")
 Date parameter should be in (yyyy-MM-dd) format.
 DONE.
 
-## About:
+### Technicals:
 In dbdata folder there's init data class with these cities:
 
 Jastarnia (Poland)
