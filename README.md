@@ -19,7 +19,7 @@ Pissouri (Cyprus),
 Le Morne (Mauritius)
 
 App connects to WeatherbitAPI, chooses best city to surf if city's temperature is between 5 Celsius and 35 Celsius
-and it's wind speed is between 5m/s and 18m/s.  
+and it's wind speed is between 5m/s and 18m/s. Any conflict is resolved by higher return value from formula 'windspd * 3 + temp'.
 
 
 Returned value is in string format "*City* (*Country*) *tmp* Celsius *windspd* m/s"  
