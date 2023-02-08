@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Clock;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
@@ -29,17 +29,17 @@ public class DateValidator {
         boolean isDateAfterToday = isDateAfterOrEqualToday(date);
         boolean isDateLessOrEqual16DaysAway = isDateLessOrEqual16DaysAwayFromToday(date);
 
-        return isDateAfterToday && isDateLessOrEqual16DaysAway;
+        return !(isDateAfterToday && isDateLessOrEqual16DaysAway);
     }
 
     public boolean isDateLessOrEqual16DaysAwayFromToday(String date) {
-        return LocalDateTime.now(clock).plusDays(15).isAfter(LocalDateTime.parse(date, dtf)) ||
-                LocalDateTime.now(clock).plusDays(15).isEqual(LocalDateTime.parse(date, dtf));
+        return LocalDate.now(clock).plusDays(15).isAfter(LocalDate.parse(date, dtf)) ||
+                LocalDate.now(clock).plusDays(15).isEqual(LocalDate.parse(date, dtf));
 
     }
 
     public boolean isDateAfterOrEqualToday(String date) {
-        return !LocalDateTime.now(clock).isAfter(LocalDateTime.parse(date, dtf)) || LocalDateTime.now(clock).isEqual(LocalDateTime.parse(date, dtf));
+        return !LocalDate.now(clock).isAfter(LocalDate.parse(date, dtf)) || LocalDate.now(clock).isEqual(LocalDate.parse(date, dtf));
     }
 
 }

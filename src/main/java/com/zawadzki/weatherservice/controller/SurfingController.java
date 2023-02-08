@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/weather/surfing")
+@RequestMapping("/weather/cities")
 public class SurfingController {
 
     private final SurfingService surfingService;
 
-    @RequestMapping("/best{data}")
+    @RequestMapping("/surfing/best{date}")
     @ResponseStatus(HttpStatus.OK)
-    public String getBestSurfingLocation(@RequestParam("data") String date) {
+    public String getBestSurfingLocation(@RequestParam("date") String date) {
         return surfingService.calculateBestCityToSurf(date);
     }
 

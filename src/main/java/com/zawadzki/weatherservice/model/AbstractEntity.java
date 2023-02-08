@@ -1,10 +1,9 @@
 package com.zawadzki.weatherservice.model;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class AbstractEntity {
@@ -12,15 +11,6 @@ public class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Version
-    private Long version;
-
-    @UpdateTimestamp
-    private LocalDateTime updateDate;
-
-    @CreationTimestamp
-    private LocalDateTime createDate;
 
 
 }
