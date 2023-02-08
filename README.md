@@ -4,8 +4,8 @@ to get the best surfing weather in a location from already embedded cities.
 
 ### To configure:
 
-Open application.properties file in .\resources folder
-Edit apiKey property and pass your API key
+Open application.properties file in .\resources folder,
+edit apiKey property and pass your API key
 App is available at ("*SERVER*/weather/cities/surfing/best{date}")
 Date parameter should be in (yyyy-MM-dd) format.
 DONE.
