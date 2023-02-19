@@ -28,6 +28,7 @@ class SurfingServiceInternal implements SurfingService {
         List<SurfingLocation> listOfSurfingLocations = surfingLocationHelper.createListOfSurfingLocationsFromAllCities(date);
 
         Optional<SurfingLocation> bestSurfingLocation = listOfSurfingLocations.stream()
+            //inty mozna wyniesc do stalych
                 .filter(location -> location.getTemperature() > 5 && location.getTemperature() < 35 &&
                         location.getWindSpeed() > 5 && location.getWindSpeed() < 18)
                 .max(Comparator.comparing(s1 -> s1.getWindSpeed() * 3 + s1.getTemperature()));

@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CountryEntity extends AbstractEntity {
-
+//entery nie sa potrzebne jesli nad polami nie masz jakichs adnotacji typu @Column
     private String countryName;
 
 }

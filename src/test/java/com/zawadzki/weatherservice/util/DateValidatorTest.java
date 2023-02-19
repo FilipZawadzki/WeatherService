@@ -38,6 +38,7 @@ class DateValidatorTest {
 
     @Test
     void shouldReturnTrue_WhenRangeIsNotValid() {
+        //given when mozna razem napisac i enter przed then
         //given
         //when
         boolean result = dateValidator.isRangeNotValid(LocalDate.now().plusDays(16).format(TestData.dtf));
