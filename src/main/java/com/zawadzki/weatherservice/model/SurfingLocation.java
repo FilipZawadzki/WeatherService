@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SurfingLocation {
-
+//formatownie sie rozjezdza, tu dales 2 entery
 
     private CityEntity city;
 

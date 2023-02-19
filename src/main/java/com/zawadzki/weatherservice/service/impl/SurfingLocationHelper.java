@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//ani service ani impl :) daj do pakietu utils i uzyj @Component
 @Service
 @RequiredArgsConstructor
 class SurfingLocationHelper {
@@ -21,6 +22,7 @@ class SurfingLocationHelper {
     protected SurfingLocation createSurfingLocationForDateFromJSON(CityEntity city, String apiJsonResponse, String date) {
         String apiResponseForDateInJson = weatherbitAPIService.getJsonResponseForDate(apiJsonResponse, date);
 
+        //to jeszcze mozna rozbic na prywatna metode
         String[] data = Arrays.stream(apiResponseForDateInJson.split(","))
                 .filter(str -> str.contains("city_name") ||
                         str.contains("wind_spd") ||

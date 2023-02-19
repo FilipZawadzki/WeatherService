@@ -23,6 +23,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+//oprocz testow servicu prosze o zrobienie testow integracyjnych ktore przetestuja cale flow (mozesz uzyc wiremocka zeby zamockowac clienta, ewentualnie zamockowac sama klase client)
 @SpringBootTest
 class SurfingLocationHelperTest {
 
@@ -72,6 +73,7 @@ class SurfingLocationHelperTest {
         String latitude = TestData.getFortaleza().getCoordinate().getLatitude();
         String longitude = TestData.getFortaleza().getCoordinate().getLongitude();
         String url = String.format(weatherbitConfig.getUrlTemplate(), latitude, longitude, 1L, weatherbitConfig.getApiKey());
+        //rob entery pomiedzy blokami given, when i then
         //when
         Mockito.when(cityDao.findAll())
                 .thenReturn(listOfCities);

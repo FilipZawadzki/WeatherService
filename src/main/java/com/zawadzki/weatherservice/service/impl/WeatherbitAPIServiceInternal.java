@@ -31,6 +31,7 @@ class WeatherbitAPIServiceInternal {
             conn.connect();
 
             if (conn.getResponseCode() != 200) {
+                //runtime bardzo sredni, lepiej zrobic dedykowany exception i obsluzyc go w handlerze
                 throw new RuntimeException("HttpsResponseCode: " + conn.getResponseCode());
             } else {
                 Scanner scn = new Scanner(url.openStream());
@@ -52,10 +53,11 @@ class WeatherbitAPIServiceInternal {
         return String.format(weatherbitConfig.getUrlTemplate(), coordinateEntity.getLatitude(), coordinateEntity.getLongitude(), daysOfForecast, weatherbitConfig.getApiKey());
     }
 
+    //metody dales protected zeby uzyc ich w testach, ale one sa uzywane tylko w jednek klasie wiec wystarczy jak glowna metode ustawisz jako publiczna, reszta private i przetestujesz cale flow tej klasy
     protected long calculateNumberOfDaysToForecast(String date) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate dateToCalculate = LocalDate.parse(date, dtf);
-
+//usun enter
         return Math.abs(ChronoUnit.DAYS.between(dateToCalculate, LocalDate.now(clock))) + 1;
     }
 
